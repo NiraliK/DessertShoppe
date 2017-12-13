@@ -6,20 +6,44 @@
 
 /**
  *
- * @author CHANGE_THIS_TO_YOUR_NAME
+ * @author niralikantaria
  */
-public class Candy {
-    
-    
-    public Candy(String name, double weight, int pricePerLbs)
-    {
+public class Candy extends DessertItem {
 
+    //variables intialized for the weight and the price of the candy 
+    private double weight;
+    private int pricePerLBs;
+
+    //candy class stores the information about the candy 
+    //the canadys name, weight and priceperlb 
+    public Candy(String name, double weight, int pricePerLbs) {
+        //super created to store the name of the candy 
+        super(name);
+        this.pricePerLBs = pricePerLBs;
+        this.weight = weight;
     }
 
- 
-    
-    public String toString()
-    {
-       
+    //to string created to print out the prinal price of the candy on the recipt 
+    @Override
+    public String toString() {
+        //the cost of the candy is converted to dollar fromc ents
+        String costD = DessertShoppe.cents2dollarsAndCents(this.getCost());
+        // the correct number of spaces is determined 
+        int spaces = DessertShoppe.RECEIPT_WIDTH - super.getName().length();
+        //for loop created to print out the exact amount of calculated spaces
+        for (int i = 0; i < spaces; i++) {
+            costD = "" + costD;
+        }
+        //the cost, name of candy and the spaces to create a recipt is printed out 
+        return this.weight + "@ $" + DessertShoppe.cents2dollarsAndCents(this.pricePerLBs) + " /lb" + "\n" + super.getName() + costD;
+    }
+
+    @Override
+    //cost of the candy is calculated 
+    public int getCost() {
+        //the weight is multipled by the price per lb 
+        int price = (int) (Math.round(this.weight * this.pricePerLBs));
+        //final price is returned
+        return price;
     }
 }

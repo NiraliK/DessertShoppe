@@ -13,9 +13,9 @@ public class Checkout {
     private int numItems = 0;
     private DessertItem[] desserts = new DessertItem[100];
     
-    public Checkout()
-    {
-        
+    public Checkout() {
+        numItems = 0; 
+        desserts = new DessertItem[100];   
     }
     
     
