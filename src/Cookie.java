@@ -25,9 +25,9 @@ public class Cookie extends DessertItem {
     //the cost of cook is calculated 
     public int getCost() {
         //the number of cookies bought out of a douzen multipied by the price of a dozen 
-        int price = (int) Math.round((this.number / 12.0) * this.pricePer12);
+        double price = Math.round((number / 12.0) * this.pricePer12);
         //the price is returned 
-        return price;
+        return (int)price;
     }
 
     @Override
@@ -36,10 +36,10 @@ public class Cookie extends DessertItem {
         //the cost is determined 
         String costD = DessertShoppe.cents2dollarsAndCents(this.getCost());
         //the number of spaces between the name and the cost is calculated 
-        int spaces = DessertShoppe.RECEIPT_WIDTH - super.getName().length();
+        int spaces = DessertShoppe.RECEIPT_WIDTH - super.getName().length() - costD.length();
         //for loop created to print out the exact amount of calculated spaces
         for (int i = 0; i < spaces; i++) {
-            costD = "" + costD;
+            costD = " " + costD;
         }
         //the final price with the spaces on the receipt is printed out 
         return this.number + "@ $" + this.pricePer12 * 0.01 + " /dz" + "\n" + super.getName() + costD;

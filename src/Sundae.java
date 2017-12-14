@@ -32,10 +32,10 @@ public class Sundae extends IceCream {
         //the cost is converted from cents to dollars 
         String costD = DessertShoppe.cents2dollarsAndCents(this.getCost());
         //the number of space is calculated 
-        int spaces = DessertShoppe.RECEIPT_WIDTH - super.getName().length();
+        int spaces = DessertShoppe.RECEIPT_WIDTH - super.getName().length() - costD.length();
         //for loop created to print out the exact amount of calculated spaces
         for (int i = 0; i < spaces; i++) {
-            costD = "" + costD;
+            costD = " " + costD;
         }
         //the final price and the name is printed out with the correct number of spaces 
         return this.toppingName + "Sundea with: " + "\n" + super.getName() + costD;

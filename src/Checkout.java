@@ -10,12 +10,13 @@
  */
 public class Checkout {
     
+    //variables created 
     private int numItems = 0;
     private DessertItem[] desserts = new DessertItem[100];
     
     public Checkout() {
-        numItems = 0; 
-        desserts = new DessertItem[100];   
+        this.numItems = numItems;
+        this.desserts = desserts;
     }
     
     

@@ -33,10 +33,10 @@ public class IceCream extends DessertItem {
         //cost is determined using getcost 
         String costD = DessertShoppe.cents2dollarsAndCents(this.getCost());
         //the spaces between the recipt and name is calculated 
-        int spaces = DessertShoppe.RECEIPT_WIDTH - super.getName().length();
+        int spaces = DessertShoppe.RECEIPT_WIDTH - super.getName().length() - costD.length();
         //for loop created to print out the exact amount of calculated spaces
         for (int i = 0; i < spaces; i++) {
-            costD = "" + costD;
+            costD = " " + costD;
         }
         //return the name and the cost of the icecream
         return super.getName() + costD;
